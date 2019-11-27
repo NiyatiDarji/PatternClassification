@@ -42,7 +42,7 @@ clf.fit(x_train,y_train)
 y_predict = cross_val_predict(clf,x_test,y_test,cv=5)
 y_score = (clf.predict_proba(x_test))[:,1]
 
-precision, recall, _ = precision_recall_curve(y_predict, y_score)
+precision, recall, _ = precision_recall_curve(y, y_score)
 plt.plot(recall,precision)
 plt.title('Precision-Recall Curve')
 plt.xlabel('Recall i.e. Sensitivity')
@@ -50,7 +50,7 @@ plt.ylabel('Precision')
 plt.grid(True)
 plt.show()
 
-fpr, tpr,_ = roc_curve(y_predict,y_score)
+fpr, tpr,_ = roc_curve(y,y_score)
 plt.plot(fpr,tpr)
 plt.grid(True)
 plt.xlabel('False Positive Rate i.e. (1-Specificity)')
